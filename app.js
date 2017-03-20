@@ -1,26 +1,9 @@
 'use strict';
 
-var imageArr = [ {img: 'bag.jpg'}, {img:'banana.jpg'}, {img:'bathroom.jpg'}, {img:'boots.jpg'}, {img:'breakfast.jpg'}, {img: 'bubblegum.jpg'}, {img: 'chair.j'}, {img: 'cthulhu.jpg'}, {img: 'dog-duck.jpg'}, {img: 'dragon.jpg'}, {img: 'pen.jpg'}, {img: 'pet-sweep.jpg'}, {img: 'scissors.jpg'}, {img: 'shark.jpg'}, {img: 'sweep.png'}, {img: 'tauntaun.jpg'}, {img: 'unicorn.jpg'}, {img: 'usb.gif'}, {img: 'water-can.jpg'}, {img: 'wine-glass.jpg'}];
+var imageArr = [ 'images/bag.jpg', 'images/banana.jpg', 'images/bathroom.jpg', 'images/boots.jpg', 'images/breakfast.jpg', 'images/bubblegum.jpg', 'images/chair.jpg', 'images/cthulhu.jpg', 'images/dog-duck.jpg', 'images/dragon.jpg', 'images/pen.jpg', 'images/pet-sweep.jpg', 'images/scissors.jpg', 'images/shark.jpg', 'images/sweep.png', 'images/tauntaun.jpg', 'images/unicorn.jpg', 'images/usb.gif', 'images/water-can.jpg', 'images/wine-glass.jpg'];
 
-//var randomImage = function() {
-  //return Math.floor(Math.random() * (20 - 1 + 1) + 1);
-//};
-
-// var selectImage = function() {
-//   var printImage = imageArr[Math.floor(Math.random() * 19)];
-//   return printImage;
-// };
-function roundOne() {
-  for (var i = 0; i < imageArr.length; i++){
-    var firstPick = document.createElement(imageArr[i]);
-    var secondPick = document.createElement(imageArr[i]);
-    var thirdPick = document.createElement(imageArr[i]);
-  };
+var randImage = function() {
+  Math.floor((Math.random() * (19 - 0) + 1) + 0);
 };
-// var firstChoice = function() {
-//   for (var i = 0; i < 2; i++) {
-//     var imageOne = ;
-//     var imageTwo;
-//     var imageThree;
-//   }
-// };
+
+var newImage = new Object();
