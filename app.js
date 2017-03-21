@@ -80,4 +80,4 @@ function produceData() {
     insideList.innerText = inputTotals;
     list.appendChild(insideList);
   }
-};
+}
