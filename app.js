@@ -4,23 +4,23 @@ var imageArray = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'breakfa
 
 var nameArray = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 
-var imgOne = document.getElementbyId('left');
-var imgTwo = document.getElementbyId('center');
-var imgThree = document.getElementbyId('right');
 var clickCounter = 0;
 var productsArray = [];
+var imgOne = document.getElementById('left');
+var imgTwo = document.getElementById('center');
+var imgThree = document.getElementById('right');
 
-function products(name, filepath) {
-  this.nameProduct = nameProduct;
-  this.filepath = filepath;
+function products(name, filePath) {
+  this.nameProduct = name;
+  this.filePath = filePath;
   this.clickItem = 0;
   this.productShown = 0;
-  productArray.push(this);
+  productsArray.push(this);
 };
 
 for (var i = 0; i < imageArray.length; i++) {
   var filePath = 'images/' + imageArray[i];
-  new itemProduct(nameArray[i], filepath);
+  new products(nameArray[i], filePath);
 }
 
 function randomProductIndex() {
@@ -34,19 +34,19 @@ function randomProduct() {
     if (!currentProductIndex.includes(productSelector) && !previousProductIndex.includes(productSelector)){ currentProductIndex.push(productSelector);
     }
   }
-  product1 = productsArray[currentProductIndex[0].filepath];
-  product2 = productsArray[currentProductIndex[1].filepath];
-  prodcut3 = productsArray[currentProductIndex[2].filepath];
-  imgOne.src = product1.filepath;
-  imgTwo.src = product2.filepath;
-  imgThree.src = product3.filepath;
+  var prodOne = productsArray[currentProductIndex[0]];
+  var prodTwo = productsArray[currentProductIndex[1]];
+  var prodThree = productsArray[currentProductIndex[2]];
+  imgOne.src = prodOne.filePath;
+  imgTwo.src = prodTwo.filePath;
+  imgThree.src = prodThree.filePath;
   imgOne.alt = currentProductIndex[0];
   imgTwo.alt = currentProductIndex[1];
   imgThree.alt = currentProductIndex[2];
   previousProductIndex = currentProductIndex;
-  product1.productShown++;
-  product2.productShown++;
-  product3.productShown++;
+  prodOne.productShown++;
+  prodTwo.productShown++;
+  prodThree.productShown++;
 };
 randomProduct();
 
@@ -62,9 +62,9 @@ function hearTheClick(event){
     imgOne.removeEventListener('click', hearTheClick);
     imgTwo.removeEventListener('click', hearTheClick);
     imgThree.removeEventListener('click', hearTheClick);
+    produceData();
   }
-  produceData();
-}
+};
 
 imgOne.addEventListener('click', hearTheClick);
 imgTwo.addEventListener('click', hearTheClick);
