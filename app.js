@@ -50,7 +50,7 @@ function randomProduct() {
 };
 randomProduct();
 
-var clickLimit = 25;
+var clickLimit = 3;
 function hearTheClick(event){
   randomProduct();
   clickCounter++;
