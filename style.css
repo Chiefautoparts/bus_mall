@@ -1,0 +1,47 @@
+
+
+body {
+    background-color: #BEC9CC;
+  }
+
+h1 {
+  font-size: 225px;
+  color: #102B78;
+  font-family: 'Fredoka One', cursive;
+  text-align: center;
+  text-shadow: 4px 4px 4px #F74427,
+               6px 6px 8px #C91018;
+  margin: 25px 50px
+  }
+
+  h3 {
+    font-size: 50px;
+    text-align: center;
+    font-family: Verdana, Arial, sans-serif;
+    text-decoration: underline;
+    }
+
+  p {
+    font-size: 22px;
+    text-align: center;
+
+  }
+#content {
+  margin: auto;
+}
+div {
+    display: inline-block;
+    align-content: center;
+  }
+img {
+  display: inline;
+  border-style: ridge;
+  border-width:thick;
+  border-color: #F74427;
+  image-resolution: from-image;
+  max-width: 330px;
+  margin: auto;
+  }
+footer{
+  font-size: 20px;
+}
