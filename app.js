@@ -70,16 +70,43 @@ imgOne.addEventListener('click', hearTheClick);
 imgTwo.addEventListener('click', hearTheClick);
 imgThree.addEventListener('click', hearTheClick);
 
+var totalClicks = [];
 function produceData() {
-  var content = document.getElementById('content');
-  var list = document.createElement('ul');
-  content.appendChild(list);
+  // var content = document.getElementById('content');
+  // var list = document.createElement('ul');
+  // content.appendChild(list);
   for (var i = 0; i < productsArray.length; i++){
-    var insideList = document.createElement('li');
-    var inputTotals = productsArray[i].clickItem + ' clicks for ' + productsArray[i].nameProduct;
-    insideList.innerText = inputTotals;
-    list.appendChild(insideList);
+    // var insideList = document.createElement('li');
+    // var inputTotals = productsArray[i].clickItem + ' clicks for ' + productsArray[i].nameProduct;
+    // insideList.innerText = inputTotals;
+    // list.appendChild(insideList);
+    totalClicks.push(productsArray[i].clickItem);
   }
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+
+  var data = {
+    labels: nameArray,
+    datasets: [{
+      label: 'Clicks Received',
+      data: totalClicks,
+      backgroundColor: 'blue'
+    }, {
+    }]
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
 }
 var chart = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
