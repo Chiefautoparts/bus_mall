@@ -81,3 +81,32 @@ function produceData() {
     list.appendChild(insideList);
   }
 }
+var chart = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+//var productClicks =
+var numberClicked = hearTheClick();
+var data = {
+  labels: nameArray,
+  dataset: [{
+    label: 'Products',
+    data: productClicks,
+    backgroundColor: 'blue'
+  }, {
+    label: 'number of clicks',
+    data: numberClicked,
+  }]
+};
+var createChart = new Chart(ctx, {
+  type: 'bar',
+  data: data,
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
