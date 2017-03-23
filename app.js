@@ -9,7 +9,13 @@ var productsArray = [];
 var imgOne = document.getElementById('left');
 var imgTwo = document.getElementById('center');
 var imgThree = document.getElementById('right');
-
+if (localStorage.storeClicks) {
+  var storedData = JSON.parse(localStorage.storeClicks);
+  for (var i = 0; i < storedData.length; i++){
+    productsArray.clickItem += storedData.clickItem;
+    productsArray.productShown += storedData.productShown;
+  }
+}
 function products(name, filePath) {
   this.nameProduct = name;
   this.filePath = filePath;
@@ -50,7 +56,7 @@ function randomProduct() {
 };
 randomProduct();
 
-var clickLimit = 3;
+var clickLimit = 10;
 function hearTheClick(event){
   randomProduct();
   clickCounter++;
@@ -70,43 +76,35 @@ imgOne.addEventListener('click', hearTheClick);
 imgTwo.addEventListener('click', hearTheClick);
 imgThree.addEventListener('click', hearTheClick);
 
+var totalClicks = [];
 function produceData() {
-  var content = document.getElementById('content');
-  var list = document.createElement('ul');
-  content.appendChild(list);
+  localStorage.storeClicks = JSON.stringify(productsArray);
   for (var i = 0; i < productsArray.length; i++){
-    var insideList = document.createElement('li');
-    var inputTotals = productsArray[i].clickItem + ' clicks for ' + productsArray[i].nameProduct;
-    insideList.innerText = inputTotals;
-    list.appendChild(insideList);
+    totalClicks.push(productsArray[i].clickItem);
   }
-}
-var chart = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
 
-//var productClicks =
-var numberClicked = hearTheClick();
-var data = {
-  labels: nameArray,
-  dataset: [{
-    label: 'Products',
-    data: productClicks,
-    backgroundColor: 'blue'
-  }, {
-    label: 'number of clicks',
-    data: numberClicked,
-  }]
-};
-var createChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
+  var data = {
+    labels: nameArray,
+    datasets: [{
+      label: 'Clicks Received',
+      data: totalClicks,
+      backgroundColor: 'blue'
+    }, {
+    }]
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
     }
-  }
-});
+  });
+};
