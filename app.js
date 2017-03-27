@@ -9,11 +9,11 @@ var productsArray = [];
 var imgOne = document.getElementById('left');
 var imgTwo = document.getElementById('center');
 var imgThree = document.getElementById('right');
-if (localStorage.storeClicks) {
-  var storedData = JSON.parse(localStorage.storeClicks);
-  for (var i = 0; i < storedData.length; i++){
-    productsArray.clickItem += storedData.clickItem;
-    productsArray.productShown += storedData.productShown;
+if (localStorage.storedClicks) {
+  var storedData = JSON.parse(localStorage.storedClicks);
+  for (var i = 0; i < storedClicks.length; i++){
+    productsArray[i].clickItem += storedData[i].clickItem;
+    productsArray[i].productShown += storedData[i].productShown;
   }
 }
 function products(name, filePath) {
@@ -69,6 +69,7 @@ function hearTheClick(event){
     imgTwo.removeEventListener('click', hearTheClick);
     imgThree.removeEventListener('click', hearTheClick);
     produceData();
+    localStorage.storedClicks = JSON.stringify(productsArray);
   }
 };
 
@@ -78,7 +79,6 @@ imgThree.addEventListener('click', hearTheClick);
 
 var totalClicks = [];
 function produceData() {
-  localStorage.storeClicks = JSON.stringify(productsArray);
   for (var i = 0; i < productsArray.length; i++){
     totalClicks.push(productsArray[i].clickItem);
   }
