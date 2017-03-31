@@ -4,6 +4,7 @@
 
   var nameArray = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 
+<<<<<<< HEAD
   var clickCounter = 0;
   var productsArray = [];
   var imgOne = document.getElementById('left');
@@ -15,6 +16,18 @@
       productsArray.clickItem += storedData.clickItem;
       productsArray.productShown += storedData.productShown;
     }
+=======
+var clickCounter = 0;
+var productsArray = [];
+var imgOne = document.getElementById('left');
+var imgTwo = document.getElementById('center');
+var imgThree = document.getElementById('right');
+if (localStorage.storedClicks) {
+  var storedData = JSON.parse(localStorage.storedClicks);
+  for (var i = 0; i < storedClicks.length; i++){
+    productsArray[i].clickItem += storedData[i].clickItem;
+    productsArray[i].productShown += storedData[i].productShown;
+>>>>>>> b661262256c5e9ec56a4bcc643dfac4309768355
   }
   function products(name, filePath) {
     this.nameProduct = name;
@@ -61,7 +74,19 @@
     randomProduct();
     clickCounter++;
 
+<<<<<<< HEAD
     var productIndx = this.alt;
+=======
+  productsArray[productIndx].clickItem++;
+  if (clickCounter === clickLimit) {
+    imgOne.removeEventListener('click', hearTheClick);
+    imgTwo.removeEventListener('click', hearTheClick);
+    imgThree.removeEventListener('click', hearTheClick);
+    produceData();
+    localStorage.storedClicks = JSON.stringify(productsArray);
+  }
+};
+>>>>>>> b661262256c5e9ec56a4bcc643dfac4309768355
 
     productsArray[productIndx].clickItem++;
     if (clickCounter === clickLimit) {
@@ -72,9 +97,19 @@
     }
   };
 
+<<<<<<< HEAD
   imgOne.addEventListener('click', hearTheClick);
   imgTwo.addEventListener('click', hearTheClick);
   imgThree.addEventListener('click', hearTheClick);
+=======
+var totalClicks = [];
+function produceData() {
+  for (var i = 0; i < productsArray.length; i++){
+    totalClicks.push(productsArray[i].clickItem);
+  }
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+>>>>>>> b661262256c5e9ec56a4bcc643dfac4309768355
 
   var totalClicks = [];
   function produceData() {
