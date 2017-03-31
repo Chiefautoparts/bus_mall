@@ -9,8 +9,8 @@
   var imgOne = document.getElementById('left');
   var imgTwo = document.getElementById('center');
   var imgThree = document.getElementById('right');
-  if (storeClicks.localStorage) {
-    var storedData = JSON.parse(storeClicks.localStorage);
+  if (localStorage.storeClicks) {
+    var storedData = JSON.parse(localStorage.storeClicks);
     for (var i = 0; i < storedData.length; i++){
       productsArray.clickItem += storedData.clickItem;
       productsArray.productShown += storedData.productShown;
@@ -78,7 +78,7 @@
 
   var totalClicks = [];
   function produceData() {
-    storeClicks.localStorage = JSON.stringify(productsArray);
+    localStorage.storeClicks = JSON.stringify(productsArray);
     for (var i = 0; i < productsArray.length; i++){
       totalClicks.push(productsArray[i].clickItem);
     }
